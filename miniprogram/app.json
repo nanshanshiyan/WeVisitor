@@ -1,0 +1,99 @@
+{
+	"pages": [
+		"projects/visit/pages/default/index/default_index",
+		"projects/visit/pages/news/index/news_index",
+		"projects/visit/pages/about/index/about_index",
+		"projects/visit/pages/search/search",
+		"projects/visit/pages/my/index/my_index",
+		"projects/visit/pages/my/reg/my_reg",
+		"projects/visit/pages/my/edit/my_edit",
+		"projects/visit/pages/my/foot/my_foot",
+		"projects/visit/pages/my/fav/my_fav",
+		"projects/visit/pages/news/detail/news_detail",
+		"projects/visit/pages/admin/news/list/admin_news_list",
+		"projects/visit/pages/admin/news/add/admin_news_add",
+		"projects/visit/pages/admin/news/edit/admin_news_edit",
+		"projects/visit/pages/admin/setup/about/admin_setup_about",
+		"projects/visit/pages/admin/setup/about_list/admin_setup_about_list",
+		"projects/visit/pages/admin/setup/qr/admin_setup_qr",
+		"projects/visit/pages/admin/index/home/admin_home",
+		"projects/visit/pages/admin/index/login/admin_login",
+		"projects/visit/pages/admin/content/admin_content",
+		"projects/visit/pages/admin/mgr/log/admin_log_list",
+		"projects/visit/pages/admin/mgr/edit/admin_mgr_edit",
+		"projects/visit/pages/admin/mgr/list/admin_mgr_list",
+		"projects/visit/pages/admin/mgr/add/admin_mgr_add",
+		"projects/visit/pages/admin/mgr/pwd/admin_mgr_pwd",
+		"projects/visit/pages/admin/user/list/admin_user_list",
+		"projects/visit/pages/admin/user/detail/admin_user_detail",
+		"projects/visit/pages/admin/user/export/admin_user_export",
+		"projects/visit/pages/task/add/task_add",
+		"projects/visit/pages/task/my_list/task_my_list",
+		"projects/visit/pages/task/edit/task_edit",
+		"projects/visit/pages/admin/task/list/admin_task_list",
+		"projects/visit/pages/admin/task/detail/admin_task_detail",
+		"projects/visit/pages/admin/task/export/admin_task_export",
+		"projects/visit/pages/admin/task/edit/admin_task_edit",
+		"projects/visit/pages/admin/task/add/admin_task_add",
+		"projects/visit/pages/admin/task/scan/admin_task_scan",
+		"cmpts/public/form/form_set/field/form_set_field",
+		"cmpts/public/form/form_show/content/form_show_content",
+		"pages/test1/test1"
+	],
+	"window": {
+		"backgroundColor": "#f1f1f1",
+		"backgroundTextStyle": "dark",
+		"navigationBarBackgroundColor": "#0055BE",
+		"navigationBarTitleText": "访客登记审批小程序",
+		"navigationBarTextStyle": "white"
+	},
+	"tabBar": {
+		"custom": false,
+		"backgroundColor": "#FFFFFF",
+		"color": "#999999",
+		"selectedColor": "#0055BE",
+		"list": [
+			{
+				"pagePath": "projects/visit/pages/default/index/default_index",
+				"text": "首页",
+				"iconPath": "/projects/visit/images/tabbar/home.png",
+				"selectedIconPath": "/projects/visit/images/tabbar/home_cur.png"
+			},
+			{
+				"pagePath": "projects/visit/pages/news/index/news_index",
+				"text": "公告",
+				"iconPath": "/projects/visit/images/tabbar/news.png",
+				"selectedIconPath": "/projects/visit/images/tabbar/news_cur.png"
+			},
+			{
+				"pagePath": "projects/visit/pages/task/add/task_add",
+				"text": "我要申请",
+				"iconPath": "/projects/visit/images/tabbar/add.png",
+				"selectedIconPath": "/projects/visit/images/tabbar/add_cur.png"
+			},
+			{
+				"pagePath": "projects/visit/pages/task/my_list/task_my_list",
+				"text": "我的申请",
+				"iconPath": "/projects/visit/images/tabbar/task.png",
+				"selectedIconPath": "/projects/visit/images/tabbar/task_cur.png"
+			},
+			{
+				"pagePath": "projects/visit/pages/my/index/my_index",
+				"text": "我的",
+				"iconPath": "/projects/visit/images/tabbar/my.png",
+				"selectedIconPath": "/projects/visit/images/tabbar/my_cur.png"
+			}
+		]
+	},
+	"permission": {
+		"scope.userLocation": {
+			"desc": "获取你当前位置信息用于小程序位置接口的效果展示"
+		}
+	},
+	"usingComponents": {
+		"cmpt-comm-list": "/cmpts/public/list/comm_list_cmpt",
+		"cmpt-picker": "/cmpts/public/picker/picker_cmpt",
+		"cmpt-modal": "/cmpts/public/modal/modal_cmpt"
+	},
+	"sitemapLocation": "sitemap.json"
+}

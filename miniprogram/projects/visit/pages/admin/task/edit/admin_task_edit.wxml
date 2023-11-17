@@ -1,0 +1,13 @@
+<view wx:if="{{isLoad===null}}" class="margin-top load notexist text-l text-grey"></view>
+<view wx:if="{{isLoad===false}}" class="margin-top load loading text-l text-grey"></view>
+
+<block wx:if="{{isAdmin&&isLoad}}">
+	<view class="main-admin padding-project"> 
+		<view class="form-box shadow margin-top-xs">
+				<cmpt-form-show wx:if="{{fields}}" isConfirm="{{false}}" isCacheMatch="{{true}}" id="task-form-show" mark="task-form-show" forms="{{task.TASK_FORMS||[]}}" fields="{{fields}}" bind:submit="bindSubmitCmpt" /> 
+		</view> 
+		<button bindtap="bindCheckTap" class="btn-admin margin-top-xs" style="margin-bottom:100rpx;">提交</button> 
+
+	</view>
+ 
+</block>

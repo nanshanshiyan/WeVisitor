@@ -1,0 +1,285 @@
+@import '../../../../../../style/public/admin.wxss'; 
+page {
+	--taskColor: #24a9eb;
+	--taskColorLight: #32E4FF;
+}
+
+.main-task {
+	padding: 0rpx 0rpx;
+}
+
+.task-info {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: #fff;
+	background-image: linear-gradient(45deg, var(--taskColorLight), var(--taskColor));
+	height: 200rpx;
+}
+
+.task-info .icn {
+	font-size: 60rpx;
+}
+
+.task-info .txt {
+	font-size: 30rpx;
+}
+
+.task-detail {
+	width: 100%;
+	padding: 20rpx 25rpx;
+	flex-direction: column;
+	background-color: #fff;
+}
+
+.task-detail .item {
+	width: 100%;
+	font-size: 24rpx;
+	display: flex;
+	align-items: baseline;
+	padding: 16rpx 0;
+	border-bottom: 2rpx dashed #eee;
+}
+
+.task-detail .item.tt {
+	justify-content: center;
+	border-bottom: 2rpx dashed #ccc;
+	margin-top: 30rpx;
+}
+
+.task-detail .item.img {
+	align-items: flex-start;
+}
+
+.task-detail .item:last-child {
+	border-bottom: 0;
+}
+
+.task-detail .item .title {
+	width: 170rpx;
+	color: #999;
+	text-align : right;
+	margin-right: 26rpx;
+}
+
+.task-detail .item .detail {
+	flex: 1;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.task-detail .item .detail .pic {
+	width: 150rpx;
+	height: 150rpx;
+	margin-right: 16rpx;
+	margin-bottom: 10rpx;
+	border-radius: 10rpx;
+	position: relative;
+	margin-bottom: 16rpx;
+}
+
+.task-detail .item .detail .memo {
+	width: 100%;
+	background-color: #f2f2f2;
+	padding: 20rpx;
+	border-radius: 10rpx;
+	margin-top: 30rpx;
+	color: #999;
+	font-size: 24rpx;
+}
+
+.task-detail .item .detail .memo .img {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 20rpx;
+}
+
+.task-detail .item .detail .memo .img>image {
+	width: 120rpx;
+	height: 120rpx;
+	border-radius: 6rpx;
+	margin-right: 10rpx;
+	margin-bottom: 10rpx;
+}
+
+
+.task-detail .item .detail .pic>image {
+	width: 100%;
+	height: 100%;
+	border-radius: inherit;
+}
+
+.task-detail .item .detail .pic>.no {
+	position: absolute;
+	bottom: 5rpx;
+	right: 5rpx;
+	background-color: var(--taskColor);
+	opacity: .9;
+	padding: 2rpx 6rpx;
+	border-radius: 4rpx;
+	color: #fff;
+	z-index: 1;
+	font-size: 26rpx;
+}
+
+.btn-task {
+	width: 90%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	font-size: 32rpx;
+	line-height: 2.5;
+	background-color: var(--taskColor) !important;
+	color: #fff;
+	border-radius: 40rpx;
+	margin-bottom: 60rpx;
+}
+
+.btn-bottom-task {
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	text-align: center;
+	color: #fff;
+	line-height: 2.6;
+	font-size: 36rpx;
+	background-color: inherit;
+	padding-bottom: 0rpx;
+	/*没有安全区域的手机 */
+	padding-bottom: constant(safe-area-inset-bottom);
+	/*兼容有安全区域的手机*/
+	padding-bottom: env(safe-area-inset-bottom);
+	display: flex;
+	z-index: 99999;
+}
+
+
+.task-detail .item .info .info-item .title {
+	width: 210rpx;
+}
+
+.task-status {
+	display: flex;
+	align-items: center !important;
+	font-weight: bold;
+}
+
+.task-status .content {
+	font-size: 30rpx;
+}
+
+
+.btn-bottom-task {
+	z-index: 9;
+}
+
+.tab-info {
+	width: 100%;
+	margin: 20rpx 0 0rpx;
+}
+
+.task-detail .item .info .info-item {
+	border-bottom: 1rpx dashed #ddd;
+	padding: 10rpx 0;
+}
+
+.task-detail .item .info .info-item.detail {
+	border-bottom: 1rpx dashed #ddd;
+	padding: 10rpx 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.task-detail .item .info .info-item.detail .content {
+	background-color: #f8f8f8;
+	width: 100%;
+	padding: 20rpx;
+	border-radius: 5rpx;
+	margin: 10rpx 0;
+	color: #999;
+	display: flex;
+	flex-direction: column;
+}
+
+.task-detail .item .info .info-item.detail .content .img {
+	padding-top: 20rpx;
+}
+
+.task-detail .item .info .info-item.detail .content .img image {
+	width: 140rpx;
+	height: 140rpx;
+	border-radius: 5rpx;
+}
+
+.task-detail .item .info .info-item:last-child {
+	border-bottom: 0rpx dashed #ddd !important;
+}
+
+
+.steps {
+	display: flex;
+	background-color: #fff;
+	padding: 30rpx 0;
+}
+
+.steps .item {
+	flex: 1;
+	text-align: center;
+	min-width: 100rpx;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.steps .item .status {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 70rpx;
+}
+
+.steps .item .status .check {
+	font-size: 45rpx;
+	color: var(--taskColor);
+}
+
+.steps .item .status .num {
+	width: 36rpx;
+	height: 36rpx;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 22rpx;
+	border: 2rpx solid #999;
+	color: #999;
+}
+
+.steps .item>.txt {
+	font-size: 26rpx;
+	color: #999;
+}
+
+.steps .item::before,
+.steps .item::after {
+	content: "";
+	display: block;
+	position: absolute;
+	height: 0px;
+	width: calc(100% - 80rpx);
+	border-bottom: 1rpx solid #ccc;
+	left: calc(0rpx - (100% - 80rpx) / 2);
+	top: 30rpx;
+	z-index: 0;
+}
+
+.steps .item:first-child::before,
+.steps .item:first-child::after {
+	display: none;
+}

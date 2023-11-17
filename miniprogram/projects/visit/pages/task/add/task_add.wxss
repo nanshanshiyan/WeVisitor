@@ -1,0 +1,46 @@
+@import "../../../../../style/public/detail.wxss";
+@import "../../../style/skin.wxss";
+
+.main {
+	padding: 0rpx 0 50rpx !important;
+	border-radius: 0rpx;
+}
+
+.form-box {
+	border-radius: 0;
+}
+
+.picker-cmpt {
+	text-align: left !important;
+}
+
+.picker-cmpt::before {
+	content: "" !important;
+}
+
+.form-group .line-desc {
+	font-size: 28rpx;
+	text-align: center;
+	width: 100%;
+	color: #666;
+}
+
+.submit-line {
+	width: 100%;
+}
+
+.bottom {
+	width: 100%;
+	padding: 10rpx 40rpx;
+}
+
+.bottom>view {
+	border-radius: 40rpx !important;
+	text-align: center;
+}
+
+.form-box .hint-desc.error {
+	margin-top: -40rpx;
+	z-index: 9999;
+	position: relative;
+}

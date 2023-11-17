@@ -1,0 +1,6 @@
+@import '../../../../../../style/public/admin.wxss';
+ 
+.admin-comm-list .item .info.title-mid .info-item .title {
+    width: 150rpx;
+    justify-content: flex-end;
+}

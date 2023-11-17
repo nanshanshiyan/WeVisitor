@@ -1,0 +1,118 @@
+<view wx:if="{{isLoad===null}}" class="margin-top load notexist text-l text-grey"></view>
+<view wx:if="{{isLoad===false}}" class="margin-top load loading text-l text-grey"></view>
+
+<block wx:if="{{isLoad && isAdmin}}">
+
+	<view class="main-task">
+		<view class="task-info">
+			<block wx:if="{{task.TASK_STATUS==0}}">
+				<text class="icn icon-warnfill"></text>
+				<text class="txt">等待审批</text>
+			</block>
+			<block wx:elif="{{task.TASK_STATUS==1}}">
+				<text class="icn icon-timefill"></text>
+				<text class="txt">已审批通过，待来访</text>
+			</block>
+			<block wx:elif="{{task.TASK_STATUS==2}}">
+				<text class="icn icon-roundclosefill"></text>
+				<text class="txt">审批未通过</text>
+			</block>
+			<block wx:elif="{{task.TASK_STATUS==9}}">
+				<text class="icn icon-roundcheckfill"></text>
+				<text class="txt">已来访</text>
+			</block>
+		</view>
+
+		<view class="steps">
+			<view class="item">
+				<view class="status">
+					<text wx:if="{{task.TASK_STATUS>=0}}" class="check icon-roundcheckfill status"></text>
+					<text wx:else class="status num">1</text>
+				</view>
+				<view class="txt">待审批</view>
+			</view>
+			<view class="item" wx:if="{{task.TASK_STATUS!=2}}">
+				<view class="status">
+					<text wx:if="{{task.TASK_STATUS>=1}}" class="check icon-roundcheckfill status"></text>
+					<text wx:else class="status num">2</text>
+				</view>
+				<view class="txt">已审批</view>
+			</view>
+			<view class="item" wx:if="{{task.TASK_STATUS==2}}">
+				<view class="status">
+					<text class="check icon-roundclosefill status text-red"></text>
+				</view>
+				<view class="txt">审批未通过</view>
+			</view>
+			<view class="item">
+				<view class="status">
+					<text wx:if="{{task.TASK_STATUS==9}}" class="check icon-roundcheckfill status"></text>
+					<text wx:else class="status num">3</text>
+				</view>
+				<view class="txt">已来访</view>
+			</view>
+		</view>
+
+		<view class="task-detail">
+			<view class="item">
+				<view class="title">申请时间</view>
+				<view class="info">{{task.TASK_ADD_TIME}} </view>
+			</view>
+
+			<view class="item" wx:if="{{(task.TASK_STATUS==1||task.TASK_STATUS==9) && task.TASK_SUCC_ADMIN_ID}}">
+				<view class="title">审批情况</view>
+				<view class="info">{{task.TASK_SUCC_TIME}} [{{task.TASK_SUCC_ADMIN_NAME}}] 审核通过</view>
+			</view>
+
+			<view class="item" wx:if="{{(task.TASK_STATUS==2||task.TASK_STATUS==9) && task.TASK_FAIL_ADMIN_ID}}">
+				<view class="title">审批情况</view>
+				<view class="info">{{task.TASK_FAIL_TIME}} [{{task.TASK_FAIL_ADMIN_NAME}}] 审核未通过</view>
+			</view>
+
+			<view class="item" wx:if="{{task.TASK_STATUS==9 && task.TASK_OVER_ADMIN_ID}}">
+				<view class="title">来访情况</view>
+				<view class="info">{{task.TASK_OVER_TIME}} [{{task.TASK_OVER_ADMIN_NAME}}] 来访核验</view>
+			</view>
+
+			<view class="item tt">申请信息</view>
+
+			<view class="item {{item.type=='image'?'img':''}}" wx:key="key" wx:for="{{task.TASK_FORMS}}">
+				<view class="title">{{item.title}}</view>
+				<view wx:if="{{item.type=='image'}}" class="detail">
+					<view class="pic" wx:for="{{item.val}}" wx:for-item="itm" wx:key="key1" bindtap="url" data-type="image" data-url="{{itm}}">
+						<text class="no">{{index+1}}</text>
+						<image src="{{itm}}" mode="aspectFill" class="loading" show-menu-by-longpress="{{true}}" />
+					</view>
+				</view>
+				<view wx:elif="{{item.type=='switch'}}" class="detail">{{item.val===true?'是':'否'}} </view>
+				<view wx:elif="{{item.mark=='phone'}}" bindtap="url" data-url="{{item.val}}" data-type="phone" class="content">{{item.val}} <text class="margin-left-xs icon-phone"></text> </view>
+				<view wx:else class="detail">{{item.val}} </view>
+			</view>
+
+		</view>
+
+	</view>
+
+	<view class="task-detail" wx:if="{{curDetail=='comment'}}">
+		<view class="item">
+			<view wx:if="{{!task.TASK_COMMENT_OBJ.content}}" class="detail">暂无评价</view>
+			<view wx:else class="detail">
+				<text class="text-grey margin-right-xs">{{task.TASK_COMMENT_TIME}} </text>
+				<view class="memo">
+					<text>{{task.TASK_COMMENT_OBJ.content}}</text>
+					<view class="img">
+						<image wx:for="{{task.TASK_COMMENT_OBJ.img}}" wx:for-item="itm" wx:key="key1" bindtap="url" data-type="image" data-url="{{itm}}" src="{{itm}}" mode="aspectFill" class="loading" show-menu-by-longpress="{{true}}" />
+					</view>
+				</view>
+			</view>
+		</view>
+
+	</view>
+
+	<view style="height: 200rpx;"></view>
+
+
+
+
+
+</block>

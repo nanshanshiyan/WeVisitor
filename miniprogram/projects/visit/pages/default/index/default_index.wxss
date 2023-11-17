@@ -1,0 +1,82 @@
+@import "../../../style/skin.wxss";
+
+page {
+	background-color: #F3F3FE !important;
+}
+
+.main {
+	padding: 0;
+	background-color: #F3F3FE !important;
+}
+
+.top {
+	width: 100%;
+}
+
+.top image {
+	width: 100%;
+}
+
+.box {
+	width: 100%;
+	padding: 70rpx 50rpx 20rpx;
+	border-top-right-radius: 45rpx;
+	border-top-left-radius: 45rpx;
+	margin-top: -140rpx;
+	position: relative;
+	background-color: #F3F3FE;
+	margin-bottom: 100rpx;
+}
+
+.box .inner {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.box .inner .item {
+	width: 100%;
+	margin-bottom: 40rpx;
+	min-height: 200rpx;
+	border-radius: 20rpx;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 0 30rpx;
+	background-color: #fff;
+	box-shadow: 5rpx 5rpx 20rpx 1rpx rgba(114, 130, 138, 0.1);
+}
+
+.box .inner .item .left {
+	background-color: #E3F1FD;
+	width: 100rpx;
+	height: 100rpx;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.box .inner .item .left image {
+	width: 70rpx;
+	height: 70rpx;
+}
+
+.box .inner .item .right {
+	flex: 1;
+	flex-direction: column;
+	margin-left: 40rpx;
+}
+
+.box .inner .item .right .title {
+	font-size: 42rpx;
+	font-weight: bold;
+	color: #333;
+}
+
+.box .inner .item .right .desc {
+	font-size: 26rpx;
+	color: #999;
+	margin-top: 10rpx;
+}

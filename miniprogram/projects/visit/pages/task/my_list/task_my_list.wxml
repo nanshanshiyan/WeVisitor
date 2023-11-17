@@ -1,0 +1,60 @@
+<block wx:if="{{isLogin&&isLoad}}">
+	<cmpt-comm-list pulldownType="{{['modal','modal']}}" _params="{{_params}}" type="my-task-list" search="{{search}}" _menus="{{sortMenus}}" _items="{{sortItems}}" route="task/my_list" isTotalMenu="{{true}}" sortMenusDefaultIndex="{{sortMenusDefaultIndex}}" topBottom="120" placeholder="搜索记录" bind:list="bindCommListCmpt">
+
+		<view slot="searchEnd">
+
+		</view>
+
+		<!-- List Begin -->
+		<view class="text-pic-list-box padding-project">
+			<view class="item card-project shadow-project" wx:for="{{dataList.list}}" wx:key="index">
+				<view wx:if="{{item.TASK_STATUS==0}}" class="status-right-top bg-orange">待审批</view>
+				<view wx:elif="{{item.TASK_STATUS==1}}" class="status-right-top bg-blue"><text class="icon-qrcode margin-right-xxs"></text>审批通过，待来访</view>
+				<view wx:elif="{{item.TASK_STATUS==2}}" class="status-right-top bg-red">审批未通过</view>
+				<view wx:elif="{{item.TASK_STATUS==9}}" class="status-right-top bg-green"><text class="icon-qrcode margin-right-xxs"></text>已来访</view>
+
+				<view class="title"><image src="../../../images/check.png" />{{item.TASK_OBJ.dept}} <text wx:if="{{item.TASK_TYPE==1}}" class="tag small radius margin-left-xs bg-grey light">后台录入</text></view>
+
+				<view class="author">
+					<view class="txt">来访时间：</view>
+					<view class="info">{{item.TASK_OBJ.date}} {{item.TASK_OBJ.hour}}</view>
+				</view>
+				<view class="author">
+					<view class="txt">申请人：</view>
+					<view class="info">{{item.TASK_OBJ.person}}</view>
+				</view> 
+				<view class="author">
+					<view class="txt">来访事由：</view>
+					<view class="info">{{item.TASK_OBJ.desc}}</view>
+				</view> 
+
+				<view class="data data-button" wx:if="{{isEdit}}">
+					<button wx:if="{{item.TASK_STATUS!=0}}" bindtap="url" data-url="../edit/task_edit?cateId={{cateId}}&id={{item._id}}" class="btn mid bg-gray text-black">查看详情</button>
+					<button wx:else bindtap="url" data-url="../edit/task_edit?cateId={{cateId}}&id={{item._id}}" class="btn mid bg-gray text-black">详情/修改</button>
+ 
+
+					<button bindtap="bindDelTap" data-id="{{item._id}}" class="btn mid bg-grey light"><text class="icon-delete"></text>删除</button>
+
+				</view>
+
+			</view>
+
+			<!--load begin-->
+			<import src="../../../../../tpls/public/list_load_tpl.wxml" />
+			<template is="listLoadTpl" data="{{skin:'load-project',dataList}}" />
+			<!--load end-->
+
+		</view>
+		<!-- List END -->
+
+	</cmpt-comm-list>
+
+
+ 
+
+	<block wx:if="{{skin.IS_SUB}}">
+		<import src="../../tpls/menu_tpl.wxml" />
+		<template is="menuTpl" data="{{curMenu:'my_task',returnHome:false}}" />
+	</block>
+
+</block>

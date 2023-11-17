@@ -1,0 +1,58 @@
+<view class="main">
+	<view class="top">
+		<image mode="widthFix" src="../../../images/home.jpg" class="loading" />
+	</view>
+
+	<view class="box">
+		<view class="inner">
+
+			<view class="item" bindtap="url" data-type="relaunch" data-url="../../news/index/news_index">
+				<view class="left">
+					<image mode="aspectFill" src="../../../images/home/news.png" />
+				</view> 
+				<view class="right">
+					<view class="title">通知公告</view>
+					<view class="desc">预约规则，来访须知，最新通知等</view>
+				</view>
+
+			</view>
+
+			<view class="item" bindtap="url" data-type="relaunch" data-url="../../task/add/task_add">
+				<view class="left">
+					<image mode="aspectFill" src="../../../images/home/add.png" />
+				</view> 
+				<view class="right">
+					<view class="title">申请来访</view>
+					<view class="desc">提交来访日期时间，个人资料等</view>
+				</view>
+			</view>
+
+			<view class="item" bindtap="url" data-type="relaunch" data-url="../../task/my_list/task_my_list">
+				<view class="left">
+					<image mode="aspectFill" src="../../../images/home/list.png" />
+				</view> 
+				<view class="right">
+					<view class="title">我的申请</view>
+					<view class="desc">随时查看我的申请记录和审批结果</view>
+				</view>
+			</view>
+
+			<view class="item" bindtap="url" data-type="relaunch" data-type="relaunch" data-url="../../my/index/my_index">
+				<view class="left">
+					<image mode="aspectFill" src="../../../images/home/my.png" />
+				</view> 
+				<view class="right">
+					<view class="title">个人中心</view>
+					<view class="desc">个人信息登记和变更</view>
+				</view>
+			</view>
+		</view>
+
+	</view>
+
+</view>
+
+<block wx:if="{{skin.IS_SUB}}">
+	<import src="../../tpls/menu_tpl.wxml" />
+	<template is="menuTpl" data="{{curMenu:'default_index',returnHome:false}}" />
+</block>

@@ -1,0 +1,6 @@
+{
+	"usingComponents": { 
+		"cmpt-form-show": "../../../cmpts/form/form_show_cmpt"  
+	},
+	"navigationBarTitleText": "申请来访"
+}

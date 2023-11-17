@@ -1,0 +1,39 @@
+<template name="menuTpl"> 
+	<view class="tab-bar" >   
+		<view wx:if="{{returnHome}}" class="tab-bar-home" bindtap="url" data-type="relaunch"
+			data-url="/pages/home/index/home_index">
+			<text class="tab-bar-home-text icon-homefill text-grey"></text>
+		</view>
+
+		<view class="tab-bar-border"></view> 
+
+
+		<view class="tab-bar-item" bindtap="url" data-type="relaunch" data-url="/projects/visit/pages/default/index/default_index">
+			<image class="tab-icon" src="/projects/visit/images/tabbar/home{{curMenu=='default_index'?'_cur':''}}.png"></image>
+			<view class="tab-text {{curMenu=='default_index'?'menu-project':''}}">首页</view>
+		</view>   
+
+		<view class="tab-bar-item" bindtap="url" data-type="relaunch" data-url="/projects/visit/pages/news/index/news_index">
+			<image class="tab-icon" src="/projects/visit/images/tabbar/news{{curMenu=='news_index'?'_cur':''}}.png"></image>
+			<view class="tab-text {{curMenu=='news_index'?'menu-project':''}}">公告</view>
+		</view>   
+
+
+		<view class="tab-bar-item" bindtap="url" data-type="relaunch" data-url="/projects/visit/pages/task/add/task_add">
+			<image class="tab-icon" src="/projects/visit/images/tabbar/add{{curMenu=='task_add'?'_cur':''}}.png"></image>
+			<view class="tab-text {{curMenu=='task_add'?'menu-project':''}}">我要申请</view>
+		</view>  
+
+		<view class="tab-bar-item" bindtap="url" data-type="relaunch" data-url="/projects/visit/pages/task/my_list/task_my_list">
+			<image class="tab-icon" src="/projects/visit/images/tabbar/task{{curMenu=='my_task'?'_cur':''}}.png"></image>
+			<view class="tab-text {{curMenu=='my_task'?'menu-project':''}}">我的申请</view>
+		</view>   
+
+		<view class="tab-bar-item" bindtap="url" data-type="relaunch" data-url="/projects/visit/pages/my/index/my_index">
+			<image class="tab-icon" src="/projects/visit/images/tabbar/my{{curMenu=='my_index'?'_cur':''}}.png"></image>
+			<view class="tab-text {{curMenu=='my_index'?'menu-project':''}}">我的</view>
+		</view>
+
+
+	</view>
+</template>

@@ -1,0 +1,67 @@
+<block wx:if="{{isAdmin&&isLoad}}">
+	<cmpt-comm-list doDate="{{true}}" startDate="{{startDate}}" endDate="{{endDate}}" _params="{{_params}}" source='admin' type="admin-task-list" search="{{search}}" _menus="{{sortMenus}}" _items="{{sortItems}}" pulldownType="{{['modal','modal','modal']}}" route="admin/task_list" sortMenusDefaultIndex="0" topBottom="50" placeholder="搜索联系人,手机,事由" bind:list="bindCommListCmpt">
+
+		<view slot="searchEnd">
+			
+		</view>
+
+		<!-- List Begin -->
+		<view class="task-list">
+			<view wx:if="{{dataList && dataList.total }}" class="load text-grey">共有{{dataList.total}}条符合条件记录  <button bindtap="url" data-url="../export/admin_task_export?condition={{dataList.condition}}&cateId={{cateId}}" class="btn mid radius bg-admin text-white margin-left margin-right-s"><text class="icon-down margin-right-xxs"></text>导出数据</button> </view>
+
+			<view class="item" wx:for="{{dataList.list}}" wx:key="key">
+				<view class="no">{{index+1}}</view>
+				<view class="title">
+					<image src="../../../../images/check.png" />{{item.TASK_OBJ.dept}}
+					<text wx:if="{{item.TASK_TYPE==1}}" class="type">后台录入</text>
+				</view>
+				<view wx:if="{{item.TASK_STATUS==0}}" class="status bg-orange light">待审批</view>
+				<view wx:elif="{{item.TASK_STATUS==1}}" class="status bg-blue light">审批通过，待来访</view>
+				<view wx:elif="{{item.TASK_STATUS==2}}" class="status bg-red light">审批未通过</view>
+				<view wx:elif="{{item.TASK_STATUS==9}}" class="status bg-green light">已来访</view>
+
+				<view class="inner">
+					<view class="line">
+						<view class="txt">申请人：</view>
+						<view class="info">{{item.TASK_OBJ.person}}</view>
+					</view>
+					<view class="line">
+						<view class="txt">来访事由：</view>
+						<view class="info">{{item.TASK_OBJ.desc}}</view>
+					</view>
+					<view class="line">
+						<view class="txt">来访时间：</view>
+						<view class="info">{{item.TASK_OBJ.date}} {{item.TASK_OBJ.hour}}</view>
+					</view>  
+
+				</view>
+				<view class="oprt">  
+					<view bindtap="url" data-url="../detail/admin_task_detail?id={{item._id}}&idx={{index}}" data-id="{{item._id}}">查看详情</view>
+
+					<view bindtap="url" data-url="../edit/admin_task_edit?id={{item._id}}"><text class="icon-edit"></text>编辑</view> 
+
+					<view bindtap="bindDelTap" data-id="{{item._id}}" class="text-grey"><text class="icon-delete"></text>删除</view>
+				</view>
+				<view class="oprt">   
+ 
+					<view wx:if="{{item.TASK_STATUS!=1&&item.TASK_STATUS!=9}}" bindtap="bindStatusTap" data-id="{{item._id}}" data-status="1"><text class="icon-check text-blue"></text>设为审批通过</view>
+					<view wx:if="{{item.TASK_STATUS!=0&&item.TASK_STATUS!=9}}" bindtap="bindStatusTap" data-id="{{item._id}}" data-status="0"><text class="icon-time text-orange"></text>设为待审批</view>
+					<view wx:if="{{item.TASK_STATUS!=2&&item.TASK_STATUS!=9}}" bindtap="bindStatusTap" data-id="{{item._id}}" data-status="2"><text class="icon-close text-red"></text>设为未通过</view>
+
+					<view wx:if="{{ item.TASK_STATUS==1}}" bindtap="bindStatusTap" data-id="{{item._id}}" data-status="9"><text class="icon-pullright text-green"></text>设为已来访</view>
+ 
+				</view>
+			</view>
+		</view>
+		<!-- List END -->
+
+		<!--load begin-->
+		<import src="../../../../../../tpls/public/list_load_tpl.wxml" />
+		<template is="listLoadTpl" data="{{skin:'text-grey',dataList}}" />
+		<!--load end-->
+
+
+	</cmpt-comm-list>
+
+
+</block>

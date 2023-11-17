@@ -1,0 +1,119 @@
+@import '../../../../../../style/public/admin.wxss';
+ 
+page {
+	background-color: #f8f8f8 !important;
+}
+
+.task-list {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 10rpx 20rpx;
+}
+
+.task-list .item {
+	width: 100%;
+	background-color: #fff;
+	border-radius: 5rpx;
+	margin-bottom: 20rpx;
+	padding: 10rpx 20rpx 40rpx;
+	position: relative;
+	overflow: hidden;
+	border:2rpx solid #ddd;
+}
+
+.task-list .item .title {
+	width: 100%;
+	font-size: 28rpx;
+	font-weight: bold;
+	color: #000;
+	padding: 10rpx 0;
+	display: flex;
+	align-items: center;
+	margin-bottom: 10rpx;
+}
+
+.task-list .item .title image {
+	width: 32rpx;
+	height: 32rpx;
+	margin-right: 8rpx;
+}
+
+.task-list .item .type {
+	font-size: 22rpx !important;
+	font-weight: normal;
+	margin-left: 10rpx;
+	background-color: #f2f2f2;
+	color: #666;
+	border-radius: 6rpx;
+	padding: 4rpx 10rpx;
+}
+
+.task-list .item .no {
+	position: absolute;
+	bottom: 8rpx;
+	left: 8rpx;
+	font-size: 40rpx;
+	font-weight: bold;
+	color: rgba(0, 0, 0, .07);
+	z-index: 99;
+}
+
+.task-list .item .status {
+	position: absolute;
+	top: 0rpx;
+	right: 0rpx;
+	z-index: 99;
+	font-size: 24rpx;
+	padding: 10rpx 24rpx;
+	background-color: #ccc;
+	border-top-right-radius: inherit;
+	border-bottom-left-radius: 10rpx;
+	opacity: .9;
+}
+
+.task-list .item .inner {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+
+
+.task-list .item .inner .line {
+	width: 100%;
+	font-size: 24rpx;
+	color: #333;
+	padding: 4rpx 0;
+	display: flex;
+	align-items: baseline;
+}
+
+.task-list .item .inner .line .txt {
+	width: 120rpx;
+	text-align-last: justify;
+	margin-right: 10rpx;
+	color:#777;
+}
+
+.task-list .item .inner .line .info {
+	flex: 1;
+}
+
+.task-list .item .oprt {
+	width: 100%;
+	display: flex;
+	margin-top: 24rpx;
+	justify-content: flex-start; 
+}
+
+.task-list .item .oprt>view {
+	background-color: #f2f2f2;
+	padding: 10rpx 20rpx;
+	border-radius: 6rpx;
+	font-size: 24rpx !important;
+	color: #666;
+	margin-left: 18rpx; 
+	min-width: 130rpx;
+	text-align: center;
+}

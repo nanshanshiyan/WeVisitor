@@ -1,0 +1,75 @@
+@import "../../../../../style/public/article_list.wxss";
+@import "../../../style/skin.wxss";
+
+.text-pic-list-box .item {
+	padding: 10rpx 0rpx 20rpx;
+	position: relative;
+	overflow: hidden;
+}
+
+
+.btn.mid {
+	padding: 0 30rpx;
+}
+
+.text-pic-list-box .item {
+	overflow: hidden;
+}
+
+.text-pic-list-box .item .author {
+	font-size: 24rpx;
+	color: #666;
+	padding: 0 30rpx;
+	display: flex;
+	align-items: baseline !important;
+}
+
+.text-pic-list-box .item .author .txt {
+	width: 120rpx; 
+	text-align-last: justify;
+	margin-right: 10rpx;
+	color: #999;
+}
+
+
+.text-pic-list-box .item .author .info {
+	flex: 1;
+}
+
+.text-pic-list-box .item .title {
+	width: 100%;
+	position: relative;
+	padding-right: 20rpx;
+	border-bottom: 1rpx solid #eee;
+	padding-bottom: 20rpx;
+	padding: 10rpx 30rpx 20rpx 30rpx;
+	font-size: 28rpx;
+	max-height: 120rpx;
+	display: flex;
+	align-items: center;
+}
+
+.text-pic-list-box .item image {
+	width: 30rpx;
+	height: 30rpx;
+	margin-right: 10rpx;
+}
+
+.text-pic-list-box .item .data {
+	line-height: 1.5;
+	font-size: 26rpx;
+	color: #666;
+	margin-top: 10rpx;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 0 30rpx;
+}
+
+.text-time {
+	color: #ccc;
+}
+
+.text-pic-list-box .item .data.data-button {
+	margin-top: 25rpx;
+}

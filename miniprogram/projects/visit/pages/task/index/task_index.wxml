@@ -1,0 +1,25 @@
+<block wx:if="{{isLogin&&isLoad}}">
+	<cmpt-comm-list pulldownType="{{['modal','modal']}}" _params="{{_params}}" type="task-list" search="{{search}}" _menus="{{sortMenus}}" _items="{{sortItems}}" route="task/list" isTotalMenu="{{true}}" sortMenusDefaultIndex="{{sortMenusDefaultIndex}}" topBottom="120" placeholder="搜索事项，楼栋" bind:list="bindCommListCmpt">
+
+		<view slot="searchEnd">
+
+		</view>
+
+		<!-- List Begin -->
+		<include src="../my_list/task_my_list_tpl.wxml" />
+		<!-- List END -->
+
+	</cmpt-comm-list>
+
+
+	<view class="fixed-btn" bindtap="url" data-type="relaunch" data-url="../add/task_add">
+		<text class="icon-add"></text>
+		<text>上报</text>
+	</view>
+
+	<block wx:if="{{skin.IS_SUB}}">
+		<import src="../../tpls/menu_tpl.wxml" />
+		<template is="menuTpl" data="{{curMenu:'task_index',returnHome:false}}" />
+	</block>
+
+</block>

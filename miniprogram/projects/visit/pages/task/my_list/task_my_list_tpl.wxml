@@ -1,0 +1,46 @@
+<view class="text-pic-list-box padding-project">
+	<view class="item card-project shadow-project" wx:for="{{dataList.list}}" wx:key="index">
+		<view wx:if="{{item.TASK_OBJ.level=='紧急'}}" class="status-right-top bg-orange light">{{item.TASK_OBJ.level}}</view>
+		<view wx:elif="{{item.TASK_OBJ.level=='一般'}}" class="status-right-top bg-olive light">{{item.TASK_OBJ.level}}</view>
+		<view wx:else class="status-right-top bg-grey light">{{item.TASK_OBJ.level}}</view>
+
+		<view class="title content-cut-two">{{item.TASK_OBJ.title}}</view>
+
+		<view class="author">
+			类别：<text class="text-cut margin-right">{{item.TASK_OBJ.type}}</text>
+		</view>
+
+		<view wx:if="{{item.TASK_STATUS==0}}" class="author text-red">
+			状态：<text class="icon-time text-s margin-right-xxs"></text><text>待处理</text>
+		</view>
+		<view wx:elif="{{item.TASK_STATUS==1}}" class="author text-blue">
+			状态：<text class="icon-loading text-s margin-right-xxs"></text><text>处理中</text>
+		</view>
+		<view wx:else class="author text-green">
+			状态：<text class="icon-check text-s margin-right-xxs"></text><text>已办结</text>
+		</view>
+
+		<view class="author">
+			提交：<text class="text-cut margin-right">{{item.TASK_ADD_TIME}}</text>
+		</view>
+		 
+	
+
+	
+
+		<view class="data data-button" wx:if="{{isEdit}}">
+			<button wx:if="{{item.TASK_STATUS!=0}}" bindtap="url" data-url="../edit/task_edit?cateId={{cateId}}&id={{item._id}}" class="btn mid bg-gray text-black">查看详情</button>
+			<button wx:else bindtap="url" data-url="../edit/task_edit?cateId={{cateId}}&id={{item._id}}" class="btn mid bg-gray text-black">详情/修改</button>
+
+			<button bindtap="bindDelTap" data-id="{{item._id}}" class="btn mid bg-grey light"><text class="icon-delete"></text>删除</button>
+
+		</view>
+
+	</view>
+
+	<!--load begin-->
+	<import src="../../../../../tpls/public/list_load_tpl.wxml" />
+	<template is="listLoadTpl" data="{{skin:'load-project',dataList}}" />
+	<!--load end-->
+
+</view>
